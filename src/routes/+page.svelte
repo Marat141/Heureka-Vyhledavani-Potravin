@@ -6,11 +6,9 @@
     Nastavení obchodů (např. modální okno)
     */
    
-    import SearchBar from "$lib/Components/SearchBar.svelte";
     
 </script>
 
-<SearchBar />
 
 
 
