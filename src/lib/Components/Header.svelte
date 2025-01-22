@@ -21,7 +21,7 @@
             </nav>
         </div>
         <div class="Profile-container">
-            <a href="/Profile"><img src="" alt="Obrázek"></a>
+            <a href="/Profile"><img src="/Avatar-male-pic.png" alt="Obrázek"></a>
         </div>
     </div>
 </header>
@@ -155,5 +155,4 @@
       padding: 5px;
     }
   }
-  </style>
-  
+  </style>  

@@ -9,6 +9,10 @@
 <Header />
 
 
+
+<Footer />
+
+
 {@render children()}
 
 
