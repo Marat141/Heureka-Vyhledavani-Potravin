@@ -9,11 +9,13 @@
 <Header />
 
 
+{@render children()}
+
 
 <Footer />
 
 
-{@render children()}
+
 
 
 

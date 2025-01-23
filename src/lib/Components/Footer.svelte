@@ -2,33 +2,38 @@
     <div class="footer-container">
         <div class="footer-section">
             <h3>Informace o mně</h3>
-            <a href="https://www.souepl.cz/" target=”_blank”>Moje škola</a>
-            <a href="https://www.instagram.com/fidorka_141/" target=”_blank”>Můj Instagram</a>
-            <a href="https://github.com/Marat141" target=”_blank”>Můj GitHub</a>
-            <a href="https://github.com/PanUcitelCz" target=”_blank”>Můj učitel</a>
+            <a href="https://www.souepl.cz/" target="_blank">Moje škola</a>
+            <a href="https://www.instagram.com/fidorka_141/" target="_blank">Můj Instagram</a>
+            <a href="https://github.com/Marat141" target="_blank">Můj GitHub</a>
+            <a href="https://github.com/PanUcitelCz" target="_blank">Můj učitel</a>
         </div>
         <div class="footer-section">
             <h3>O téhle stránce</h3>
-            <a href="/About" target=”_blank”>O nás</a>
-            <a href="/Feedback" target=”_blank”>Vylepšení</a>
-            <a href="https://www.kupi.cz/" target=”_blank”>Inspirace</a>
+            <a href="/About" target="_blank">O nás</a>
+            <a href="/Feedback" target="_blank">Vylepšení</a>
+            <a href="https://www.kupi.cz/" target="_blank">Inspirace</a>
         </div>
         <div class="footer-section">
             <h3>Sociální sítě</h3>
-            <a href="https://www.instagram.com/fidorka_141/" target=”_blank”><img src="/icons8-ig.svg" alt="Instagram"></a>
-            <a href="https://github.com/Marat141" target=”_blank”><img src="/icons8-github.svg" alt="GitHub"></a>
-            <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0&t=2s" target=”_blank”><img src="/icons8-pornhub.svg" alt="YouTube"></a>
+            <a href="https://www.instagram.com/fidorka_141/" target="_blank">
+                <img src="/icons8-ig.svg" alt="Instagram">
+            </a>
+            <a href="https://github.com/Marat141" target="_blank">
+                <img src="/icons8-github.svg" alt="GitHub">
+            </a>
+            <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0&t=2s" target="_blank">
+                <img src="/icons8-pornhub.svg" alt="YouTube">
+            </a>
         </div>
     </div>
 </footer>
 
-
 <style>
-    footer {
+footer {
     background-color: #f8f9fa;
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
     padding: 20px 40px;
-    margin-top: 450px;
+    margin-top: auto;
 }
 
 .footer-container {
@@ -42,6 +47,7 @@
 
 .footer-section {
     flex: 1;
+    text-align: center; /* Zarovnání obsahu na střed */
 }
 
 .footer-section h3 {
@@ -53,7 +59,7 @@
 }
 
 .footer-section a {
-    display: block;
+    display: block; /* Odkazy pod sebou */
     text-decoration: none;
     color: #555;
     font-size: 14px;
@@ -86,5 +92,4 @@
         width: 100%;
     }
 }
-
 </style>
