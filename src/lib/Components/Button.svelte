@@ -1,7 +1,7 @@
 <script>
-    export let label = 'Zmáčni'; // Výchozí hodnota tlačítka
-    export let onClick; // Handler kliknutí
-    export let customClass = ''; // Vlastní třída
+    export let label = 'Zmáčni'; // Výchozí text tlačítka
+    export let onClick; // Klikací funkce
+    export let customClass = ''; // Vlastní třída, pokud je potřeba
 
     function handleClick() {
         if (onClick) {
@@ -14,32 +14,31 @@
     {label}
 </button>
 
-<style lang="scss">
+<style>
 .button {
     display: inline-block;
     padding: 12px 24px;
-    font-size: 1rem;
+    font-size: 16px;
     font-weight: bold;
     color: #fff;
     text-align: center;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    background: linear-gradient(135deg, #800080, #b800ff);
+    background: linear-gradient(135deg, #ff5722, #e64a19);
     border: none;
-    border-radius: 10px;
+    border-radius: 5px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(128, 0, 128, 0.5);
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .button:hover {
-    background: linear-gradient(135deg, #b800ff, #800080);
-    box-shadow: 0 6px 15px rgba(186, 85, 211, 0.7);
+    background: linear-gradient(135deg, #e64a19, #ff5722);
     transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .button:active {
-    transform: scale(0.98);
-    box-shadow: 0 3px 8px rgba(128, 0, 128, 0.4);
+    transform: scale(0.97);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 </style>

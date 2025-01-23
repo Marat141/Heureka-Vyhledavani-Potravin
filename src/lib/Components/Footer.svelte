@@ -33,7 +33,7 @@ footer {
     background-color: #f8f9fa;
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
     padding: 20px 40px;
-    margin-top: auto;
+    margin: auto;
 }
 
 .footer-container {
