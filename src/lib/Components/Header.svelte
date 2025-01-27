@@ -1,158 +1,149 @@
 <script>
+  let menuOpen = false;
 
+  function toggleMenu() {
+    menuOpen = !menuOpen;
+  }
 </script>
 
 <header>
-    <div class="header-container">
-        <div class="logo-header">
-            <a href="/"><img src="/Logo-food.png" alt=""></a>
-            <h1>Good-Food</h1>
-        </div>
-        <div class="Search-Area">
-            <input type="text" placeholder="Hledat...">
-            <input type="submit" value="Hledat">
-        </div>
-        <div class="Navigation">
-            <nav>
-              <a href="/">Domov</a>
-              <a href="/Category">Kategorie</a>
-              <a href="/Product ">Produkty</a>
-              <a href="/Stores">Obchody</a>
-            </nav>
-        </div>
-        <div class="Profile-container">
-            <a href="/Profile"><img src="/Avatar-male-pic.png" alt="Obrázek"></a>
-        </div>
+  <div class="header-container">
+    <!-- Logo -->
+    <div class="logo-header">
+      <a href="/"><img src="/Logo-food.png" alt="Logo"></a>
+      <h1>Good-Food</h1>
     </div>
+
+    <!-- Desktop Navigation -->
+    <nav class="desktop-nav">
+      <a href="/">Domov</a>
+      <a href="/Category">Kategorie</a>
+      <a href="/Product">Produkty</a>
+      <a href="/Stores">Obchody</a>
+    </nav>
+
+    <!-- Profile Icon and Hamburger -->
+    <div class="mobile-controls">
+      <a href="/Profile" class="profile-icon">
+        <img src="/Avatar-male-pic.png" alt="Profil">
+      </a>
+      <div class="hamburger" onclick={toggleMenu}>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Navigation -->
+  {#if menuOpen}
+    <nav class="mobile-nav">
+      <a href="/">Domov</a>
+      <a href="/Category">Kategorie</a>
+      <a href="/Product">Produkty</a>
+      <a href="/Stores">Obchody</a>
+    </nav>
+  {/if}
 </header>
 
 <style>
   header {
     background-color: #f8f9fa;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     padding: 10px 20px;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   }
-  
+
   .header-container {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
     max-width: 1200px;
     margin: 0 auto;
   }
-  
+
   .logo-header {
     display: flex;
     align-items: center;
   }
-  
-  .logo-header a {
-    display: inline-block;
-  }
-  
+
   .logo-header img {
     max-height: 50px;
     margin-right: 10px;
   }
-  
+
   .logo-header h1 {
     font-size: 24px;
     color: #ff5722;
-    font-family: 'Arial', sans-serif;
     margin: 0;
   }
-  
-  .Search-Area {
-    display: flex;
-    align-items: center;
-  }
-  
-  .Search-Area input[type="text"] {
-    padding: 8px 12px;
-    border: 1px solid #ff5722;
-    border-radius: 4px 0 0 4px;
-    font-size: 16px;
-    outline: none;
-  }
-  
-  .Search-Area input[type="submit"] {
-    padding: 8px 16px;
-    background-color: #ff5722;
-    color: #ffffff;
-    border: none;
-    border-radius: 0 4px 4px 0;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
-  }
-  
-  .Search-Area input[type="submit"]:hover {
-    background-color: #e64a19;
-  }
-  
-  .Navigation nav {
+
+  .desktop-nav {
     display: flex;
     gap: 20px;
   }
-  
-  .Navigation nav a {
+
+  .desktop-nav a {
     text-decoration: none;
     color: #ff5722;
-    font-size: 16px;
     font-weight: bold;
     padding: 5px 10px;
     border-radius: 4px;
-    transition: background-color 0.3s, color 0.3s;
+    transition: 0.3s;
   }
-  
-  .Navigation nav a:hover {
+
+  .desktop-nav a:hover {
     background-color: #ff5722;
     color: #ffffff;
   }
-  
-  .Profile-container a {
-    display: inline-block;
+
+  .mobile-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
   }
-  
-  .Profile-container img {
+
+  .profile-icon img {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    object-fit: cover;
     border: 2px solid #ff5722;
   }
-  
+
+  .hamburger {
+    display: none; /* Defaultně skryté */
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+  }
+
+  .hamburger span {
+    width: 30px;
+    height: 3px;
+    background-color: #ff5722;
+    border-radius: 2px;
+  }
+
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 60px;
+    right: 20px;
+  }
+
   @media (max-width: 768px) {
-    header .header-container {
-      flex-direction: column;
-      align-items: flex-start;
+    .desktop-nav {
+      display: none;
     }
-  
-    .Search-Area {
-      margin-top: 10px;
-      width: 100%;
-    }
-  
-    .Search-Area input[type="text"] {
-      flex-grow: 1;
-      width: calc(100% - 110px);
-    }
-  
-    .Search-Area input[type="submit"] {
-      width: 100px;
-    }
-  
-    .Navigation {
-      margin-top: 10px;
-    }
-  
-    .Navigation nav {
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-  
-    .Navigation nav a {
-      padding: 5px;
+
+    .hamburger {
+      display: flex; /* Zobrazí hamburger pouze na mobilním rozlišení */
     }
   }
-  </style>  
+</style>
