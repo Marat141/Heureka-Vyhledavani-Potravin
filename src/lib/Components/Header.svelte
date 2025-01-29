@@ -81,7 +81,6 @@
           margin-right: 10px;
         }
 
-
         h1 {
           font-size: 24px;
           color: #ff5722; /* Oranžová barva */
@@ -89,13 +88,12 @@
           font-family: "Arial", sans-serif;
         }
 
-        .title-h1-a{
+        .title-h1-a {
           text-decoration: none;
         }
       }
 
       .desktop-nav {
-        flex: 1; /* Zabírá prostor uprostřed */
         display: flex;
         justify-content: center; /* Vycentrování odkazů */
         gap: 20px;
@@ -114,11 +112,11 @@
       }
 
       .mobile-controls {
-        flex: 1; /* Zabírá prostor vpravo */
         display: flex;
         justify-content: flex-end;
         align-items: center;
         gap: 10px;
+        padding-left: 20px;
 
         .profile-icon img {
           width: 40px;
@@ -153,6 +151,10 @@
       transform: translateX(100%);
       transition: transform 0.3s ease-in-out;
       z-index: 1;
+      box-sizing: border-box;
+      justify-content: center;
+      align-items: center;
+      gap: 36px;  
 
       &.open {
         transform: translateX(0);
@@ -164,6 +166,10 @@
         font-size: 16px;
         font-weight: bold;
         color: #555;
+        text-decoration: none;
+        font-family: "Arial", sans-serif;
+
+
 
         &:hover {
           color: #ff5722;
