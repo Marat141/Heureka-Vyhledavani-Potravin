@@ -20,7 +20,7 @@
     <!-- Logo -->
     <div class="logo-header">
       <a href="/"><img src="/Logo-food.png" alt="Logo" /></a>
-      <h1>Good-Food</h1>
+      <a href="/" class="title-h1-a"><h1>Good-Food</h1></a>
     </div>
 
     <!-- Desktop Navigation Links -->
@@ -81,11 +81,16 @@
           margin-right: 10px;
         }
 
+
         h1 {
           font-size: 24px;
           color: #ff5722; /* Oranžová barva */
           margin: 0;
           font-family: "Arial", sans-serif;
+        }
+
+        .title-h1-a{
+          text-decoration: none;
         }
       }
 
