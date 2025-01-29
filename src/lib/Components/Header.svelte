@@ -1,5 +1,5 @@
 <script>
-  import { Hamburger } from 'svelte-hamburgers';
+  import { Hamburger } from "svelte-hamburgers";
 
   let menuOpen = false;
 
@@ -56,113 +56,119 @@
 </header>
 
 <style lang="scss">
-header {
-  background-color: #f8f9fa; /* Světlé pozadí */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  padding: 20px 10px;
-  position: relative;
+  header {
+    background-color: #f8f9fa; /* Světlé pozadí */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px 10px;
+    position: relative;
 
-  .header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-
-    /* Flex styling to center navigation */
-    .logo-header {
-      flex: 1; /* Zabírá prostor vlevo */
+    .header-container {
       display: flex;
+      justify-content: space-between;
       align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
 
-      img {
-        max-height: 50px;
-        margin-right: 10px;
+      /* Flex styling to center navigation */
+      .logo-header {
+        flex: 1; /* Zabírá prostor vlevo */
+        display: flex;
+        align-items: center;
+
+        img {
+          max-height: 50px;
+          margin-right: 10px;
+        }
+
+        h1 {
+          font-size: 24px;
+          color: #ff5722; /* Oranžová barva */
+          margin: 0;
+          font-family: "Arial", sans-serif;
+        }
       }
 
-      h1 {
-        font-size: 24px;
-        color: #ff5722; /* Oranžová barva */
-        margin: 0;
-        font-family: 'Arial', sans-serif;
+      .desktop-nav {
+        flex: 1; /* Zabírá prostor uprostřed */
+        display: flex;
+        justify-content: center; /* Vycentrování odkazů */
+        gap: 20px;
+
+        a {
+          font-size: 16px;
+          font-weight: bold;
+          color: #ff5722;
+          transition: color 0.3s;
+          text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+          display: none; /* Skryje navigaci na mobilu */
+        }
+      }
+
+      .mobile-controls {
+        flex: 1; /* Zabírá prostor vpravo */
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 10px;
+
+        .profile-icon img {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          border: 2px solid #ff5722;
+        }
+
+        .hamburger-container {
+          display: none;
+
+          @media (max-width: 768px) {
+            display: flex;
+          }
+        }
       }
     }
 
-    .desktop-nav {
-      flex: 1; /* Zabírá prostor uprostřed */
+    /* Mobile Navigation Links */
+    .mobile-nav {
+      position: fixed;
+      top: 0;
+      right: 0;
+      height: 100vh;
+      width: 200px;
+      background: #f8f9fa;
+      box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
       display: flex;
-      justify-content: center; /* Vycentrování odkazů */
+      flex-direction: column;
       gap: 20px;
+      padding: 20px;
+      transform: translateX(100%);
+      transition: transform 0.3s ease-in-out;
+      z-index: 1;
+
+      &.open {
+        transform: translateX(0);
+        padding-top: 80px;
+        z-index: 1;
+      }
 
       a {
         font-size: 16px;
         font-weight: bold;
-        color: #ff5722;
-        transition: color 0.3s;
-        text-decoration: none;
-      }
+        color: #555;
 
-      @media (max-width: 768px) {
-        display: none; /* Skryje navigaci na mobilu */
-      }
-    }
-
-    .mobile-controls {
-      flex: 1; /* Zabírá prostor vpravo */
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      gap: 10px;
-
-      .profile-icon img {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        border: 2px solid #ff5722;
-      }
-
-      .hamburger-container {
-        display: none;
-
-        @media (max-width: 768px) {
-          display: flex;
+        &:hover {
+          color: #ff5722;
         }
       }
     }
-  }
 
-  /* Mobile Navigation Links */
-  .mobile-nav {
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100vh;
-    width: 200px;
-    background: #f8f9fa;
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 20px;
-    transform: translateX(100%);
-    transition: transform 0.3s ease-in-out;
-    z-index: 1;
-
-    &.open {
-      transform: translateX(0);
-      padding-top: 80px;
-    }
-
-    a {
-      font-size: 16px;
-      font-weight: bold;
-      color: #555;
-
-      &:hover {
-        color: #ff5722;
-      }
+    .hamburger-container {
+      display: none;
+      z-index: 10;
     }
   }
-}
 </style>
