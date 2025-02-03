@@ -1,0 +1,18 @@
+<script>
+  let selectedOption = "vše"; // Výchozí hodnota
+  let options = ["vše", "možnost 1", "možnost 2", "možnost 3"];
+
+  function handleSelect(event) {
+    selectedOption = event.target.value;
+    console.log("Vybráno:", selectedOption);
+  }
+</script>
+
+<label for="filter">Vyber filtr:</label>
+<select id="filter" bind:value={selectedOption} on:change={handleSelect}>
+  {#each options as option}
+    <option value={option}>{option}</option>
+  {/each}
+</select>
+
+<p>Aktuálně vybráno: {selectedOption}</p>
