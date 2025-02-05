@@ -5,6 +5,7 @@
 	import Header from "$lib/Components/Header.svelte";
 	import Footer from "$lib/Components/Footer.svelte";
 	import SearchBar from "$lib/Components/SearchBar.svelte";
+	import Filter from "$lib/Components/Filter.svelte"
 
 	let { children } = $props();
 	let isLogginIn = $state(false);
@@ -32,6 +33,8 @@
 {#if $showSearchBar}
 	<SearchBar />
 {/if}
+
+
 
 {@render children()}
 

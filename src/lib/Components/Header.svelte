@@ -1,4 +1,5 @@
 <script>
+  import { onMount, onDestroy } from "svelte";
   import { Hamburger } from "svelte-hamburgers";
 
   let menuOpen = false;
@@ -13,29 +14,41 @@
   function toggleMenu() {
     menuOpen = !menuOpen;
   }
+
+  function closeMenuOnResize() {
+    if (window.innerWidth > 768) {
+      menuOpen = false;
+    }
+  }
+
+  onMount(() => {
+    window.addEventListener("resize", closeMenuOnResize);
+  });
+
+  onDestroy(() => {
+    window.removeEventListener("resize", closeMenuOnResize);
+  });
 </script>
 
 <header>
   <div class="header-container">
-    <!-- Logo -->
     <div class="logo-header">
       <a href="/"><img src="/Logo-food.png" alt="Logo" /></a>
       <a href="/" class="title-h1-a"><h1>Good-Food</h1></a>
     </div>
 
-    <!-- Desktop Navigation Links -->
     <div class="desktop-nav">
       {#each menu_list as menu}
         <a href={menu.url}>{menu.name}</a>
       {/each}
     </div>
 
-    <!-- Hamburger for mobile -->
     <div class="mobile-controls">
       <a href="/Profile" class="profile-icon">
         <img src="/Avatar-male-pic.png" alt="Profil" />
       </a>
       <div class="hamburger-container">
+        <!--on:click={toggleMenu} nechat!!! Kvuli Hamburger protoze je to jeste ze svelte 5 ale funguje to        -->
         <Hamburger
           bind:open={menuOpen}
           on:click={toggleMenu}
@@ -47,7 +60,6 @@
     </div>
   </div>
 
-  <!-- Mobile Navigation -->
   <div class="mobile-nav {menuOpen ? 'open' : ''}">
     {#each menu_list as menu}
       <a href={menu.url}>{menu.name}</a>
@@ -57,7 +69,7 @@
 
 <style lang="scss">
   header {
-    background-color: #f8f9fa; /* Světlé pozadí */
+    background-color: #f8f9fa;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     padding: 20px 10px;
     position: relative;
@@ -70,9 +82,8 @@
       margin: 0 auto;
       padding: 0 20px;
 
-      /* Flex styling to center navigation */
       .logo-header {
-        flex: 1; /* Zabírá prostor vlevo */
+        flex: 1;
         display: flex;
         align-items: center;
 
@@ -83,7 +94,7 @@
 
         h1 {
           font-size: 24px;
-          color: #ff5722; /* Oranžová barva */
+          color: #ff5722;
           margin: 0;
           font-family: "Arial", sans-serif;
         }
@@ -95,7 +106,7 @@
 
       .desktop-nav {
         display: flex;
-        justify-content: center; /* Vycentrování odkazů */
+        justify-content: center;
         gap: 20px;
 
         a {
@@ -107,7 +118,7 @@
         }
 
         @media (max-width: 768px) {
-          display: none; /* Skryje navigaci na mobilu */
+          display: none;
         }
       }
 
@@ -135,7 +146,6 @@
       }
     }
 
-    /* Mobile Navigation Links */
     .mobile-nav {
       position: fixed;
       top: 0;
@@ -154,7 +164,7 @@
       box-sizing: border-box;
       justify-content: center;
       align-items: center;
-      gap: 36px;  
+      gap: 36px;
 
       &.open {
         transform: translateX(0);
@@ -168,8 +178,6 @@
         color: #555;
         text-decoration: none;
         font-family: "Arial", sans-serif;
-
-
 
         &:hover {
           color: #ff5722;
