@@ -1,5 +1,6 @@
 <script>
   import { onMount, onDestroy } from "svelte";
+  import { browser } from "$app/environment"; // Přidáme kontrolu, jestli běžíme na klientovi
   import { Hamburger } from "svelte-hamburgers";
 
   let menuOpen = false;
@@ -21,14 +22,17 @@
     }
   }
 
-  onMount(() => {
-    window.addEventListener("resize", closeMenuOnResize);
-  });
+  if (browser) {
+    onMount(() => {
+      window.addEventListener("resize", closeMenuOnResize);
+    });
 
-  onDestroy(() => {
-    window.removeEventListener("resize", closeMenuOnResize);
-  });
+    onDestroy(() => {
+      window.removeEventListener("resize", closeMenuOnResize);
+    });
+  }
 </script>
+
 
 <header>
   <div class="header-container">

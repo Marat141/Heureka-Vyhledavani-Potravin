@@ -10,7 +10,12 @@
     <form class="search-container">
         <!-- SVG ikona lupy vlevo -->
         <div class="search-icon">
-            <svg class="e-icon c-search__icon" aria-hidden="true" width="20" height="20">
+            <svg
+                class="e-icon c-search__icon"
+                aria-hidden="true"
+                width="20"
+                height="20"
+            >
                 <use xlink:href="#ou-search"></use>
             </svg>
         </div>
@@ -31,8 +36,15 @@
 <!-- SVG definice -->
 <svg style="display: none;">
     <symbol id="ou-search" viewBox="0 0 24 24">
-        <path d="M21 21l-4.35-4.35" stroke="black" stroke-width="2"/>
-        <circle cx="10" cy="10" r="7" stroke="black" stroke-width="2" fill="none"/>
+        <path d="M21 21l-4.35-4.35" stroke="black" stroke-width="2" />
+        <circle
+            cx="10"
+            cy="10"
+            r="7"
+            stroke="black"
+            stroke-width="2"
+            fill="none"
+        />
     </symbol>
 </svg>
 
@@ -42,6 +54,7 @@
         justify-content: center;
         align-items: center;
         margin: 20px;
+        margin-bottom: 1px;
     }
 
     .search-container {

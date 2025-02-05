@@ -12,8 +12,7 @@
         <svg
             class="arrow-icon"
             style:transform={`rotate(${isOpen ? "180deg" : "0deg"})`}
-            viewBox="0 0 24 24"
-        >
+            viewBox="0 0 24 24">
             <path d="M7 10l5 5 5-5H7z"></path>
         </svg>
     </button>
@@ -56,6 +55,7 @@
         flex-direction: column;
         align-items: center;
         margin-bottom: 50px;
+        margin-top: 0;
     }
 
     .toggle-button {
@@ -63,7 +63,7 @@
         border: none;
         padding: 12px;
         cursor: pointer;
-        border-radius: 50px;
+        border-radius: 8px 8px 25px 25px; /* Zaoblené pouze spodní rohy */
         box-shadow:
             4px 4px 8px rgba(0, 0, 0, 0.2),
             -4px -4px 8px rgba(255, 255, 255, 0.7);
@@ -71,8 +71,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 50px;
-        height: 50px;
+        width: 115px;
+        height: 35px;
 
         &:hover {
             box-shadow:
