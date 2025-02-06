@@ -1,5 +1,6 @@
 <script>
     import Button from "$lib/Components/Button.svelte";
+    import { goto } from "$app/navigation";
 
     let userName = "";
     let email = "";
@@ -9,10 +10,12 @@
     let emailError = "";
     let passwordError = "";
     let confirmPasswordError = "";
+    let serverError = ""; // Chybová zpráva od serveru
 
-    function submitForm() {
+    async function submitForm() {
         let hasError = false;
 
+        // Validace formuláře
         if (!userName.trim()) {
             userNameError = "Vyplňte Uživatelské jméno";
             hasError = true;
@@ -44,19 +47,42 @@
             confirmPasswordError = "";
         }
 
-        if (!hasError) {
-            console.log("Formulář byl úspěšně odeslán!", {
-                userName,
-                email,
-                password,
+        if (hasError) return;
+
+        // Odeslání dat na backend
+        try {
+            const res = await fetch("/register", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    email,
+                    password,
+                }),
             });
+
+            const data = await res.json();
+
+            if (!res.ok) {
+                serverError = data.error || "Něco se pokazilo";
+                return;
+            }
+
+            // Uložení tokenu do localStorage
+            localStorage.setItem("token", data.token);
+
+            // Přesměrování na login
+            goto("/login");
+        } catch (err) {
+            serverError = "Chyba serveru, zkuste to později.";
+            console.error(err);
         }
     }
 </script>
 
 <main>
     <div class="window">
-        <!-- Upravené tlačítko Login-button -->
         <button class="Login-button">
             <a href="/Login">Přihlášení</a>
         </button>
@@ -89,8 +115,12 @@
             {#if confirmPasswordError}
                 <div class="error-message">{confirmPasswordError}</div>
             {/if}
+
+            {#if serverError}
+                <div class="server-error">{serverError}</div>
+            {/if}
         </div>
-        <Button label="Registrace" onClick={submitForm} />
+        <Button label="Registrace" on:click={submitForm} />
     </div>
 </main>
 
@@ -127,7 +157,10 @@
         font-weight: bold;
         text-transform: uppercase;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+        transition:
+            background 0.3s,
+            transform 0.2s,
+            box-shadow 0.3s;
     }
 
     .Login-button a {
