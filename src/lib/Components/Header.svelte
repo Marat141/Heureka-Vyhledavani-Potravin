@@ -7,7 +7,6 @@
 
   const menu_list = [
     { name: "Domov", url: "./" },
-    { name: "Kategorie", url: "/Category" },
     { name: "Produkty", url: "/Product" },
     { name: "Obchody", url: "/Stores" },
   ];

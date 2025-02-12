@@ -123,7 +123,7 @@
         <Button label="Registrace" on:click={submitForm} />
     </div>
 </main>
-
+    
 <style>
     .window {
         position: relative; /* Aby bylo možné zarovnat tlačítko uvnitř */
